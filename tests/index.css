@@ -1,0 +1,26 @@
+html {
+	font-size: 16px;
+}
+
+.test {
+	display: block;
+	padding: 0.5rem;
+	background-color: white;
+	color: black;
+	font-size: 1.5rem;
+}
+
+.warn {
+	background-color: yellow;
+	color: black;
+}
+
+.pass {
+	background-color: green;
+	color: white;
+}
+
+.fail {
+	background-color: red;
+	color: white;
+}
