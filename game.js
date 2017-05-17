@@ -10,7 +10,6 @@ var fpsCounter;
 
 function run() {
 	init();
-
 }
 
 function init() {

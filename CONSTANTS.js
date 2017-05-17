@@ -10,9 +10,9 @@ const PLAYER_HEIGHT = 16;
 const SCREEN_WIDTH = 800;
 const SCREEN_HEIGHT = 600;
 
-// World dimensions
-const WORLD_WIDTH = 64;
-const WORLD_HEIGHT = 64;
+// Chunk dimensions
+const CHUNK_WIDTH = 64;
+const CHUNK_HEIGHT = 64;
 
 // Timer target updates per second
 const TARGET_UPS = 60;
