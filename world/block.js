@@ -5,7 +5,7 @@ function Block(x, y, blockType) {
 }
 
 Block.prototype.update = function() { }
-Block.prototype.render = function(context) {
-	context.fillStyle = this.type.color;
-	context.fillRect(this.x * BLOCK_WIDTH, this.y * BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
+Block.prototype.render = function(screen) {
+	screen.getContext().fillStyle = this.type.color;
+	screen.getContext().fillRect((this.x - screen.getX()) * BLOCK_WIDTH, (this.y - screen.getY()) * BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
 }

@@ -8,8 +8,8 @@ $LAB
 .script("screen.js")
 
 // /entity
-.script("entity/entity.js")
-.script("entity/mob.js")
+.script("entity/entity.js").wait()
+.script("entity/mob.js").wait()
 .script("entity/player.js")
 
 // /util
@@ -18,7 +18,6 @@ $LAB
 .script("util/input-listener.js")
 .script("util/input.js")
 .script("util/mainloop.min.js")
-.script("util/timer.js")
 
 // /world
 .script("world/block-type.js")
@@ -26,6 +25,6 @@ $LAB
 .script("world/world.js")
 
 // WAIT for dependencies to load, then load game and run after load
-.wait().script("game.js").wait(function() {
+.script("game.js").wait(function() {
 	run();
 });
