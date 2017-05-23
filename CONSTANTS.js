@@ -10,9 +10,9 @@ const PLAYER_HEIGHT = 16;
 const SCREEN_WIDTH = 800;
 const SCREEN_HEIGHT = 600;
 
-// Chunk dimensions
-const CHUNK_WIDTH = 64;
-const CHUNK_HEIGHT = 64;
+// World dimensions
+const WORLD_WIDTH = 64;
+const WORLD_HEIGHT = 64;
 
 // Timer target updates per second
 const TARGET_UPS = 60;
@@ -23,3 +23,4 @@ const INPUT_LEFT_KEYCODES = [37, 65, 100];
 const INPUT_RIGHT_KEYCODES = [39, 68, 102];
 const INPUT_UP_KEYCODES = [38, 87, 104];
 const INPUT_DOWN_KEYCODES = [40, 83, 98];
+const INPUT_ACTION_KEYCODES = [32, 67];

@@ -14,7 +14,7 @@ function run() {
 
 function init() {
 	world = new World();
-	player = new Player(10, 10, PLAYER_WIDTH, PLAYER_HEIGHT, 0.005);
+	player = new Player(10, 10, PLAYER_WIDTH / BLOCK_WIDTH, PLAYER_HEIGHT / BLOCK_HEIGHT, 0.005);
 
 	input = new InputListener();
 	gameScreen = new Screen();
@@ -37,8 +37,8 @@ update = function(delta) {
  */
 render = function() {
     gameScreen.clear();
-    world.render(gameScreen.context);
-    player.render(gameScreen.context);
+    world.render(gameScreen.getContext(), player.getXOffset(), player.getYOffset());
+    player.render(gameScreen.getContext());
 }
 
 end = function(fps, panic) {

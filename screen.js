@@ -12,3 +12,6 @@ Screen.prototype.clear = function() {
 Screen.prototype.getContext = function() {
 	return this.context;
 }
+Screen.prototype.render = function() {
+	
+}

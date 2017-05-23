@@ -34,7 +34,7 @@ World.prototype.getBlock = function(x, y) {
 	}
 }
 World.prototype.update = function() { }
-World.prototype.render = function(context) {
+World.prototype.render = function(context, xOffset, yOffset) {
 	for (j = 0; j < WORLD_HEIGHT; j++) {
 		for (i = 0; i < WORLD_WIDTH; i++) {
 			this.worldBlocks[j][i].render(context);
