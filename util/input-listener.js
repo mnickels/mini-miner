@@ -10,6 +10,7 @@ function InputListener() {
         right: new Input(INPUT_RIGHT_KEYCODES),
         up: new Input(INPUT_UP_KEYCODES),
         down: new Input(INPUT_DOWN_KEYCODES),
+        action: new Input(INPUT_ACTION_KEYCODES),
 	};
 	ILobj = this;
 	window.addEventListener('keydown', function(e) {

@@ -14,10 +14,10 @@ function run() {
 
 function init() {
 	world = new World();
-	player = new Player(10, 10, PLAYER_WIDTH, PLAYER_HEIGHT, 0.005);
+	player = new Player(10, 10, PLAYER_WIDTH / BLOCK_WIDTH, PLAYER_HEIGHT / BLOCK_HEIGHT, 0.005);
 
 	input = new InputListener();
-	gameScreen = new Screen();
+	gameScreen = new Screen(player);
 
 	// *** MainLoop.js stuff ***
 	fpsCounter = document.getElementById('fpscounter');
@@ -30,6 +30,7 @@ function init() {
  */
 update = function(delta) {
     player.update(delta, input.inputs);
+    gameScreen.update();
 }
 
 /*
@@ -37,8 +38,8 @@ update = function(delta) {
  */
 render = function() {
     gameScreen.clear();
-    world.render(gameScreen.context);
-    player.render(gameScreen.context);
+    world.render(gameScreen);
+    player.render(gameScreen);
 }
 
 end = function(fps, panic) {

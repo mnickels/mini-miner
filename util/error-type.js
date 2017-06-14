@@ -1,3 +1,3 @@
 const ErrorType = {
-	BOUNDS_ERROR = "Out of Bounds",
+	BOUNDS_ERROR : "Out of Bounds",
 }

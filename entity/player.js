@@ -19,4 +19,9 @@ Player.prototype.update = function(delta, kbInputs) {
 	if (kbInputs.down.isDown()) {
 		this.move(Direction.DOWN, delta * this.speed);
 	}
+
+	if (kbInputs.action.isDown()) {
+		console.log("action button pressed");
+	}
+
 }

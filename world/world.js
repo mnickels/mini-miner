@@ -34,10 +34,10 @@ World.prototype.getBlock = function(x, y) {
 	}
 }
 World.prototype.update = function() { }
-World.prototype.render = function(context) {
+World.prototype.render = function(screen) {
 	for (j = 0; j < WORLD_HEIGHT; j++) {
 		for (i = 0; i < WORLD_WIDTH; i++) {
-			this.worldBlocks[j][i].render(context);
+			this.worldBlocks[j][i].render(screen);
 		}
 	}
 }
