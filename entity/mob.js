@@ -25,6 +25,7 @@ Mob.prototype.move = function(dir, dist) {
 		}
 		if (canMove) {
 			this.x = dest.x;
+			console.log('left:' + '(' + this.x + ',' + this.y + ')');
 		} else {
 			this.x = blockedAt + 1;
 		}
@@ -40,6 +41,7 @@ Mob.prototype.move = function(dir, dist) {
 		}
 		if (canMove) {
 			this.x = dest.x;
+			console.log('right:' + '(' + this.x + ',' + this.y + ')');
 		} else {
 			this.x = blockedAt - this.w / BLOCK_WIDTH;
 		}
@@ -55,6 +57,7 @@ Mob.prototype.move = function(dir, dist) {
 		}
 		if (canMove) {
 			this.y = dest.y;
+			console.log('down:' + '(' + this.x + ',' + this.y + ')');
 		} else {
 			this.y = blockedAt - this.h / BLOCK_HEIGHT;
 		}
@@ -70,10 +73,11 @@ Mob.prototype.move = function(dir, dist) {
 		}
 		if (canMove) {
 			this.y = dest.y;
+			console.log('up:' + '(' + this.x + ',' + this.y + ')');
 		} else {
 			this.y = blockedAt + 1;
 		}
 	}
 
-	console.log('(' + this.x + ',' + this.y + ')');
+	// console.log('(' + this.x + ',' + this.y + ')');
 }
