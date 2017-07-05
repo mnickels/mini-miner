@@ -74,4 +74,6 @@ Mob.prototype.move = function(dir, dist) {
 			this.y = blockedAt + 1;
 		}
 	}
+
+	console.log('(' + this.x + ',' + this.y + ')');
 }
