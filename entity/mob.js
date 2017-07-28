@@ -14,13 +14,8 @@ Mob.prototype.move = function(dir, dist) {
 	var blockedAt;
 
 	if (dir == Direction.LEFT) {
-
-	}
-
-	if (dir == Direction.LEFT) {
 		loop: for (i = Math.floor(this.x); i >= Math.floor(dest.x); i--) {
-			for (j = Math.floor(this.y); j <= Math.floor(this.y + this.h / BLOCK_HEIGHT); j++) {
-				console.log('\t(' + i + ',' + j + ')');
+			for (j = Math.floor(this.y); j <= Math.floor(this.y + this.h); j++) {
 				if (!world.getBlock(i, j).type.passable) {
 					canMove = false;
 					blockedAt = i;
@@ -30,13 +25,12 @@ Mob.prototype.move = function(dir, dist) {
 		}
 		if (canMove) {
 			this.x = dest.x;
-			console.log('left:' + '(' + this.x + ',' + this.y + ')');
 		} else {
 			this.x = blockedAt + 1;
 		}
 	} else if (dir == Direction.RIGHT) {
-		loop: for (i = Math.floor(this.x + this.w / BLOCK_WIDTH); i <= Math.floor(dest.x + this.w / BLOCK_WIDTH); i++) {
-			for (j = Math.floor(this.y); j <= Math.floor(this.y + this.h / BLOCK_HEIGHT); j++) {
+		loop: for (i = Math.floor(this.x + this.w); i <= Math.floor(dest.x + this.w); i++) {
+			for (j = Math.floor(this.y); j <= Math.floor(this.y + this.h); j++) {
 				if (!world.getBlock(i, j).type.passable) {
 					canMove = false;
 					blockedAt = i;
@@ -46,13 +40,12 @@ Mob.prototype.move = function(dir, dist) {
 		}
 		if (canMove) {
 			this.x = dest.x;
-			console.log('right:' + '(' + this.x + ',' + this.y + ')');
 		} else {
-			this.x = blockedAt - this.w / BLOCK_WIDTH;
+			this.x = blockedAt - this.w;
 		}
 	} else if (dir == Direction.DOWN) {
-		loop: for (i = Math.floor(this.y + this.h / BLOCK_HEIGHT); i <= Math.floor(dest.y + this.h / BLOCK_HEIGHT); i++) {
-			for (j = Math.floor(this.x); j <= Math.floor(this.x + this.w / BLOCK_WIDTH); j++) {
+		loop: for (i = Math.floor(this.y + this.h); i <= Math.floor(dest.y + this.h); i++) {
+			for (j = Math.floor(this.x); j <= Math.floor(this.x + this.w); j++) {
 				if (!world.getBlock(i, j).type.passable) {
 					canMove = false;
 					blockedAt = i;
@@ -62,13 +55,12 @@ Mob.prototype.move = function(dir, dist) {
 		}
 		if (canMove) {
 			this.y = dest.y;
-			console.log('down:' + '(' + this.x + ',' + this.y + ')');
 		} else {
-			this.y = blockedAt - this.h / BLOCK_HEIGHT;
+			this.y = blockedAt - this.h;
 		}
 	} else if (dir == Direction.UP) {
 		loop: for (i = Math.floor(this.y); i >= Math.floor(dest.y); i--) {
-			for (j = Math.floor(this.x); j <= Math.floor(this.x + this.w / BLOCK_WIDTH); j++) {
+			for (j = Math.floor(this.x); j <= Math.floor(this.x + this.w); j++) {
 				if (!world.getBlock(i, j).type.passable) {
 					canMove = false;
 					blockedAt = i;
@@ -78,11 +70,8 @@ Mob.prototype.move = function(dir, dist) {
 		}
 		if (canMove) {
 			this.y = dest.y;
-			console.log('up:' + '(' + this.x + ',' + this.y + ')');
 		} else {
 			this.y = blockedAt + 1;
 		}
 	}
-
-	// console.log('(' + this.x + ',' + this.y + ')');
 }
