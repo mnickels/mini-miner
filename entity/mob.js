@@ -16,6 +16,7 @@ Mob.prototype.move = function(dir, dist) {
 	if (dir == Direction.LEFT) {
 		loop: for (i = Math.floor(this.x); i >= Math.floor(dest.x); i--) {
 			for (j = Math.floor(this.y); j <= Math.floor(this.y + (this.h - 1) / BLOCK_HEIGHT); j++) {
+				console.log('\t(' + i + ',' + j + ')');
 				if (!world.getBlock(i, j).type.passable) {
 					canMove = false;
 					blockedAt = i;
