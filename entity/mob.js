@@ -14,8 +14,12 @@ Mob.prototype.move = function(dir, dist) {
 	var blockedAt;
 
 	if (dir == Direction.LEFT) {
+
+	}
+
+	if (dir == Direction.LEFT) {
 		loop: for (i = Math.floor(this.x); i >= Math.floor(dest.x); i--) {
-			for (j = Math.floor(this.y); j <= Math.floor(this.y + (this.h - 1) / BLOCK_HEIGHT); j++) {
+			for (j = Math.floor(this.y); j <= Math.floor(this.y + this.h / BLOCK_HEIGHT); j++) {
 				console.log('\t(' + i + ',' + j + ')');
 				if (!world.getBlock(i, j).type.passable) {
 					canMove = false;
@@ -32,7 +36,7 @@ Mob.prototype.move = function(dir, dist) {
 		}
 	} else if (dir == Direction.RIGHT) {
 		loop: for (i = Math.floor(this.x + this.w / BLOCK_WIDTH); i <= Math.floor(dest.x + this.w / BLOCK_WIDTH); i++) {
-			for (j = Math.floor(this.y); j <= Math.floor(this.y + (this.h - 1) / BLOCK_HEIGHT); j++) {
+			for (j = Math.floor(this.y); j <= Math.floor(this.y + this.h / BLOCK_HEIGHT); j++) {
 				if (!world.getBlock(i, j).type.passable) {
 					canMove = false;
 					blockedAt = i;
@@ -48,7 +52,7 @@ Mob.prototype.move = function(dir, dist) {
 		}
 	} else if (dir == Direction.DOWN) {
 		loop: for (i = Math.floor(this.y + this.h / BLOCK_HEIGHT); i <= Math.floor(dest.y + this.h / BLOCK_HEIGHT); i++) {
-			for (j = Math.floor(this.x); j <= Math.floor(this.x + (this.w - 1) / BLOCK_WIDTH); j++) {
+			for (j = Math.floor(this.x); j <= Math.floor(this.x + this.w / BLOCK_WIDTH); j++) {
 				if (!world.getBlock(i, j).type.passable) {
 					canMove = false;
 					blockedAt = i;
@@ -64,7 +68,7 @@ Mob.prototype.move = function(dir, dist) {
 		}
 	} else if (dir == Direction.UP) {
 		loop: for (i = Math.floor(this.y); i >= Math.floor(dest.y); i--) {
-			for (j = Math.floor(this.x); j <= Math.floor(this.x + (this.w - 1) / BLOCK_WIDTH); j++) {
+			for (j = Math.floor(this.x); j <= Math.floor(this.x + this.w / BLOCK_WIDTH); j++) {
 				if (!world.getBlock(i, j).type.passable) {
 					canMove = false;
 					blockedAt = i;
