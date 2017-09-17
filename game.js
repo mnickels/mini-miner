@@ -14,7 +14,7 @@ function run() {
 
 function init() {
 	world = new World();
-	player = new Player(10, 10, PLAYER_WIDTH / BLOCK_WIDTH, PLAYER_HEIGHT / BLOCK_HEIGHT, 0.005);
+	player = new Player(10 * BLOCK_WIDTH, 10 * BLOCK_HEIGHT, PLAYER_WIDTH, PLAYER_HEIGHT, .5);
 
 	input = new InputListener();
 	gameScreen = new Screen(player);

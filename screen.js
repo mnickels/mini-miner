@@ -1,8 +1,8 @@
 function Screen(targetEntity) {
 	this.x = 0;
 	this.y = 0;
-	this.w = SCREEN_WIDTH / BLOCK_WIDTH;
-	this.h = SCREEN_HEIGHT / BLOCK_HEIGHT;
+	this.w = SCREEN_WIDTH;
+	this.h = SCREEN_HEIGHT;
 	this.target = targetEntity;
 	this.canvas = document.createElement("canvas");
 	this.canvas.width = SCREEN_WIDTH;
