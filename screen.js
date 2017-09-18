@@ -34,6 +34,6 @@ Screen.prototype.setTarget = function(newTargetEntity) {
 }
 
 Screen.prototype.update = function() {
-	this.x = this.target.getCenteredX() - this.getWidth() / 2;
-	this.y = this.target.getCenteredY() - this.getHeight() / 2;
+	this.x = Math.floor(this.target.getCenteredX() - this.getWidth() / 2);
+	this.y = Math.floor(this.target.getCenteredY() - this.getHeight() / 2);
 }

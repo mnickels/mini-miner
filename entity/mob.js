@@ -11,17 +11,34 @@ Mob.prototype.constructor = Mob;
 Mob.prototype.move = function(dir, dist) {
 	var dest = Direction.move(this.x, this.y, dir, dist);
 
-	var top = world.getBlock(dest.x, Math.floor(dest.y));
-	var bottom = world.getBlock(dest.x, Math.ceil(dest.y));
+	var b0, b1;
 
-	var isColliding = top.isColliding(this.x, this.y, this.w, this.h);
-	isColliding = bottom.isColliding(this.x, this.y, this.w, this.h) || isColliding;
+	if (dir == Direction.LEFT) {
+		b0 = world.getBlock(dest.x, Math.floor(dest.y));
+		b1 = world.getBlock(dest.x, Math.ceil(dest.y));
+	} else if (dir == Direction.RIGHT) {
+		b0 = world.getBlock(dest.x + this.w, Math.floor(dest.y));
+		b1 = world.getBlock(dest.x + this.w, Math.ceil(dest.y));
+	} else if (dir == Direction.UP) {
+		b0 = world.getBlock(Math.floor(dest.x), dest.y);
+		b1 = world.getBlock(Math.ceil(dest.x), dest.y);
+	} else if (dir == Direction.DOWN) {
+		b0 = world.getBlock(Math.floor(dest.x), dest.y + this.h);
+		b1 = world.getBlock(Math.ceil(dest.x), dest.y + this.h);
+	}
 
-	var isPassable = top.isPassable();
-	isPassable = bottom.isPassable() || isPassable;
-
-	if (!isColliding && isPassable) {
+	if (b0.isPassable() && b1.isPassable()) {
 		this.x = dest.x;
 		this.y = dest.y;
+	} else {
+		if (dir == Direction.LEFT) {
+			this.x = b0.x + BLOCK_WIDTH;
+		} else if (dir == Direction.RIGHT) {
+			this.x = b0.x - this.w;
+		} else if (dir == Direction.UP) {
+			this.y = b0.y + BLOCK_HEIGHT;
+		} else if (dir == Direction.DOWN) {
+			this.y = b0.y - this.h;
+		}
 	}
 }
