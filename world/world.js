@@ -25,8 +25,8 @@ World.prototype.prepareSpawnArea = function(x, y) {
 }
 
 World.prototype.getBlock = function(x, y) {
-	x = Math.floor(x);
-	y = Math.floor(y);
+	x = Math.floor(x / BLOCK_WIDTH);
+	y = Math.floor(y / BLOCK_HEIGHT);
 	if (validCoordinates(x, y)) {
 		return this.worldBlocks[y][x];
 	} else {
