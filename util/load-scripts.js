@@ -20,9 +20,11 @@ $LAB
 .script("util/mainloop.min.js")
 
 // /world
-.script("world/block-type.js")
-.script("world/block.js")
 .script("world/world.js")
+// /world/blocks
+.script("world/blocks/block.js")
+.script("world/blocks/air-block.js")
+.script("world/blocks/stone-block.js")
 
 // WAIT for dependencies to load, then load game and run after load
 .script("game.js").wait(function() {
