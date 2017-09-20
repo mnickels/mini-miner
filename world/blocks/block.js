@@ -13,13 +13,15 @@ Block.prototype.isBreakable = function() {
 	return this.breakable;
 }
 
-Block.prototype.doHit = function(dmg=1) {
+Block.prototype.doHit = function(dmg) {
 	if (this.breakable) {
 		this.hp -= dmg;
 		if (this.hp <= 0) {
 			this.destroy();
+			return true;
 		}
 	}
+	return false;
 }
 Block.prototype.destroy = function() { }
 

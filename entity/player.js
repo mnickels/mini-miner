@@ -1,5 +1,7 @@
 function Player(x, y, width, height, speed) {
 	Mob.call(this, x, y, width, height, speed);
+
+	this.damage = 1;
 }
 
 Player.prototype = Object.create(Mob.prototype);
@@ -21,7 +23,7 @@ Player.prototype.update = function(delta, kbInputs) {
 	}
 
 	if (kbInputs.action.isDown()) {
-		console.log("action button pressed");
+		this.dig(this.damage);
 	}
 
 }

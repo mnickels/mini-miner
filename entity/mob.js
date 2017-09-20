@@ -3,6 +3,7 @@ function Mob(x, y, width, height, speed) {
 	Entity.call(this, x, y, width, height);
 
 	this.speed = speed;
+	this.lastDir = Direction.DOWN;
 }
 
 Mob.prototype = Object.create(Entity.prototype);
@@ -14,17 +15,17 @@ Mob.prototype.move = function(dir, dist) {
 	var b0, b1;
 
 	if (dir == Direction.LEFT) {
-		b0 = world.getBlock(dest.x, Math.floor(dest.y));
-		b1 = world.getBlock(dest.x, Math.ceil(dest.y));
+		b0 = world.getBlock(dest.x, dest.y);
+		b1 = world.getBlock(dest.x, dest.y + this.h - 1);
 	} else if (dir == Direction.RIGHT) {
-		b0 = world.getBlock(dest.x + this.w, Math.floor(dest.y));
-		b1 = world.getBlock(dest.x + this.w, Math.ceil(dest.y));
+		b0 = world.getBlock(dest.x + this.w, dest.y);
+		b1 = world.getBlock(dest.x + this.w, dest.y + this.h - 1);
 	} else if (dir == Direction.UP) {
-		b0 = world.getBlock(Math.floor(dest.x), dest.y);
-		b1 = world.getBlock(Math.ceil(dest.x), dest.y);
+		b0 = world.getBlock(dest.x, dest.y);
+		b1 = world.getBlock(dest.x + this.w - 1, dest.y);
 	} else if (dir == Direction.DOWN) {
-		b0 = world.getBlock(Math.floor(dest.x), dest.y + this.h);
-		b1 = world.getBlock(Math.ceil(dest.x), dest.y + this.h);
+		b0 = world.getBlock(dest.x, dest.y + this.h);
+		b1 = world.getBlock(dest.x + this.w - 1, dest.y + this.h);
 	}
 
 	if (b0.isPassable() && b1.isPassable()) {
@@ -41,4 +42,14 @@ Mob.prototype.move = function(dir, dist) {
 			this.y = b0.y - this.h;
 		}
 	}
+
+	this.lastDir = dir;
+}
+
+Mob.prototype.dig = function(dmg) {
+	var dest = Direction.move(this.getCenteredX(), this.getCenteredY(), this.lastDir, BLOCK_WIDTH);
+
+	var block = world.getBlock(dest.x, dest.y);
+
+	block.doHit(dmg);
 }

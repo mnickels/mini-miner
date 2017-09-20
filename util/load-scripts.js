@@ -25,6 +25,7 @@ $LAB
 .script("world/blocks/block.js")
 .script("world/blocks/air-block.js")
 .script("world/blocks/stone-block.js")
+.script("world/blocks/bruce-block.js")
 
 // WAIT for dependencies to load, then load game and run after load
 .script("game.js").wait(function() {
